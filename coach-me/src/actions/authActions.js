@@ -15,10 +15,7 @@ export const registerCoach = register => dispatch => {
     const creds = register.records[0].fields;
     dispatch({ type: REGISTER_START });
     axios
-        .post(
-            `${process.env.REACT_APP_BACK_END_URL}/coachRoute/newRegister `,
-            creds
-        )
+        .post(`http://localhost:4000/coachRoute/newRegister `, creds)
         .then(res => {
             dispatch({
                 type: REGISTER_SUCCESS,

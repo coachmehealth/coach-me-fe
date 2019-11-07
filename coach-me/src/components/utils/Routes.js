@@ -15,6 +15,7 @@ import LoginCoach from '../coach/loginCoach/LoginCoach';
 
 //Styling
 import '../../App.css';
+import { ResetPassword } from '../coach/loginCoach/resetPassword/ResetPassword';
 
 const Routes = props => {
     return (
@@ -34,6 +35,7 @@ const Routes = props => {
                 render={props => <CoachRegistration {...props} />}
             />
             <Route path='/login' component={LoginCoach} />
+            <Route path='/reset/:token' component={ResetPassword} />
 
             <PrivateRoute path='/metrics' component={HealthMetric} />
             <PrivateRoute path='/dashboard' component={CoachDashboard} />

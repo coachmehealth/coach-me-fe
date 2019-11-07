@@ -25,7 +25,7 @@ const Modal = ({ setModal }) => {
             setMessageFromServer('');
         } else {
             axios
-                .post('http://localhost:4000/forgotPassword', {
+                .post('http://localhost:4000/forgotRoute/forgotPassword', {
                     email: email
                 })
                 .then(res => {
