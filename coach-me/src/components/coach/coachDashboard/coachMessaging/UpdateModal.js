@@ -1,54 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ScheduledMessagesList from './ScheduledMessagesList';
-import {
-    getScheduledMessage,
-    addScheduledMessage
-} from '../../../../actions/coachActions';
-
 import './ScheduledMessages.scss';
+import { updateScheduledMessage } from '../../../../actions/coachActions';
+import './updateModal.scss';
 
-function ScheduledMessages(props) {
-    const { clientprofile } = props;
-    const dispatch = useDispatch();
+const UpdateModal = props => {
+    const { show } = props;
     const state = useSelector(state => state.coach);
+    const dispatch = useDispatch();
+    console.log(state);
 
-    // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
-        patientId: `${clientprofile.clientId}`,
-        msg: '',
-        min: '',
-        hour: '',
-        dom: '',
-        month: '',
-        weekday: '',
-        ampm: '',
-        year: ''
+        patientId: ``,
+        msg: ``,
+        min: ``,
+        hour: ``,
+        dom: ``,
+        month: ``,
+        weekday: ``,
+        ampm: ``,
+        year: ``
     });
-
-    useEffect(() => {
-        dispatch(getScheduledMessage(clientprofile.clientId));
-
-        // eslint-disable-next-line
-    }, [clientprofile.clientId]);
 
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    console.log(clientprofile.clientId);
 
-    const submitNewMessage = e => {
+    const submitUpdatedMessage = e => {
         e.preventDefault();
-        dispatch(addScheduledMessage(schedule));
+        dispatch(updateScheduledMessage(state.scheduledMessage.id));
     };
 
     return (
         <>
-            <div className='message-container'>
+            <div className={`${show === false ? 'hidden' : 'show'}`}>
+                <h1> hi </h1>
+            </div>
+            {/* <div className='message-container-modal'>
                 <h1>Schedule a Message</h1>
 
-                <form onSubmit={submitNewMessage}>
+                <form onSubmit={submitUpdatedMessage}>
                     <textarea
                         rows='4'
                         cols='50'
@@ -60,10 +52,10 @@ function ScheduledMessages(props) {
                         required
                     ></textarea>
 
-                    <div className='date-wrapper'>
+                    <div className='date-wrapper-modal'>
                         <h2>DATE</h2>
 
-                        <div className='selectheader'>
+                        <div className='selectheader-modal'>
                             <select
                                 name='month'
                                 value={schedule.month}
@@ -86,7 +78,7 @@ function ScheduledMessages(props) {
                                 <option value={'Dec'}>December</option>
                             </select>
                         </div>
-                        <div className='selectheader'>
+                        <div className='selectheader-modal'>
                             <select
                                 name='dom'
                                 value={schedule.dom}
@@ -128,7 +120,7 @@ function ScheduledMessages(props) {
                                 <option value={'31'}>31</option>
                             </select>
                         </div>
-                        <div className='selectheader'>
+                        <div className='selectheader-modal'>
                             <select
                                 name='year'
                                 value={schedule.year}
@@ -168,9 +160,9 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
 
-                    <div className='time-wrapper'>
+                    <div className='time-wrapper-modal'>
                         <h2>TIME</h2>
-                        <div className='selectheader'>
+                        <div className='selectheader-modal'>
                             <select
                                 name='hour'
                                 value={schedule.hour}
@@ -194,7 +186,7 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
 
-                        <div className='selectheader'>
+                        <div className='selectheader-modal'>
                             <select
                                 name='min'
                                 value={schedule.min}
@@ -266,7 +258,7 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
 
-                        <div className='selectheader'>
+                        <div className='selectheader-modal'>
                             <select
                                 name='ampm'
                                 value={schedule.ampm}
@@ -283,14 +275,8 @@ function ScheduledMessages(props) {
 
                     <button>Submit</button>
                 </form>
-                <ScheduledMessagesList
-                    clientId={clientprofile.clientId}
-                    messages={state.scheduledMessage}
-                />
-            </div>
-            <div></div>
+            </div> */}
         </>
     );
-}
-
-export default ScheduledMessages;
+};
+export default UpdateModal;

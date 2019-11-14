@@ -17,7 +17,7 @@ const SearchForm = props => {
         Array.from(cardlist).filter(item => {
             const name = item.firstElementChild.textContent;
             if (goods === name) {
-                console.log(item);
+                // console.log(item);
                 item.classList.add('active1');
             }
             if (goods !== name && item.classList.length === 2) {
@@ -27,7 +27,7 @@ const SearchForm = props => {
     };
 
     const cardlist = document.getElementsByClassName(`client-card`);
-    console.log(cardlist);
+    // console.log(cardlist);
 
     const handleChange = e => {
         e.preventDefault();
@@ -53,7 +53,7 @@ const SearchForm = props => {
 
     return (
         <>
-            <form>
+            <form className='search-form'>
                 <div className='input-icon'>
                     <img
                         className='magnifying-glass icon'
@@ -71,7 +71,7 @@ const SearchForm = props => {
                 </div>
             </form>
 
-            <div>
+            <div className='scroll-list'>
                 {ClientList &&
                     ClientList.map(client => (
                         <div className='client-card'>

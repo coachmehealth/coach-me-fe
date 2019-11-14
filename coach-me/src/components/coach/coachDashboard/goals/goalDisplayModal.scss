@@ -9,7 +9,7 @@
     background-color: black;
     width: 69.5%;
     min-height: 100vh;
-
+    width: 69.5%;
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -32,6 +32,7 @@
     width: 50%;
     max-height: 80vh;
     padding: 30px 20px;
+    margin-left: 15%;
     .modal-label {
         display: flex;
         justify-content: space-between;
@@ -49,6 +50,7 @@
     .modal-button-close {
         align-self: flex-end;
         margin-right: 4rem;
+        cursor: pointer;
     }
     .modal-button {
         align-self: center;
@@ -62,6 +64,7 @@
         font-size: 1.4rem;
         text-decoration-line: underline;
         margin-top: 1rem;
+        cursor: pointer;
         // font-weight: 500;
         // line-height: 16px;
         .close {
@@ -83,8 +86,8 @@
     margin-left: 2.2rems;
 }
 
-.scrollbar-container {
-    position: relative;
-    height: 100%;
-    width: 90%;
-}
+// .scrollbar-container {
+//     position: relative;
+//     height: 100%;
+//     width: 90%;
+// }

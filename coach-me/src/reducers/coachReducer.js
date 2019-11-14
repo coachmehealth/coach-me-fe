@@ -11,7 +11,15 @@ import {
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
     GET_CHECKIN,
-    GET_GOALS
+    GET_GOALS,
+    ADD_SCHEDULE_MESSAGE_START,
+    ADD_SCHEDULE_MESSAGE_SUCCESS,
+    GET_SCHEDULE_MESSAGE_START,
+    GET_SCHEDULE_MESSAGE_SUCCESS,
+    DELETE_SCHEDULE_MESSAGE_START,
+    DELETE_SCHEDULE_MESSAGE_SUCCESS,
+    UPDATE_SCHEDULE_MESSAGE_START,
+    UPDATE_SCHEDULE_MESSAGE_SUCCESS
 } from '../actions/types';
 
 const initialState = {
@@ -25,9 +33,9 @@ const initialState = {
     clientRecords: [],
     clientMetrics: [],
     clientCheckIn: '',
-    clientGoals: []
+    clientGoals: [],
+    scheduledMessage: []
 };
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case GET_TEXT_START:
@@ -57,6 +65,7 @@ export default (state = initialState, action) => {
                     Phone: action.payload.Phone
                 }
             };
+        case GET_SCHEDULE_MESSAGE_START:
         case GET_RECORDS_START:
             return {
                 ...state,
@@ -70,6 +79,14 @@ export default (state = initialState, action) => {
                 clientRecords: [...action.payload],
                 error: ''
             };
+        case GET_SCHEDULE_MESSAGE_SUCCESS:
+            console.log('looook at me', action.payload);
+            return {
+                ...state,
+                loading: false,
+                scheduledMessage: [...action.payload],
+                error: ''
+            };
         case GET_CHECKIN:
             return {
                 ...state,
@@ -77,7 +94,6 @@ export default (state = initialState, action) => {
                 clientCheckIn: action.payload,
                 error: ''
             };
-
         case GET_METRICS_START:
             return {
                 ...state,
@@ -96,6 +112,14 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: false,
                 clientGoals: [...action.payload],
+                error: ''
+            };
+        case ADD_SCHEDULE_MESSAGE_START:
+            console.log(action.payload);
+            return {
+                ...state,
+                loading: true,
+                scheduledMessage: [...state.scheduledMessage, action.payload],
                 error: ''
             };
         case GET_METRICS_FAILURE:

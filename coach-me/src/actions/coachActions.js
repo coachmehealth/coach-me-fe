@@ -12,7 +12,15 @@ import {
     GET_METRICS_SUCCESS,
     GET_METRICS_FAILURE,
     GET_CHECKIN,
-    GET_GOALS
+    GET_GOALS,
+    ADD_SCHEDULE_MESSAGE_START,
+    ADD_SCHEDULE_MESSAGE_SUCCESS,
+    GET_SCHEDULE_MESSAGE_START,
+    GET_SCHEDULE_MESSAGE_SUCCESS,
+    DELETE_SCHEDULE_MESSAGE_START,
+    DELETE_SCHEDULE_MESSAGE_SUCCESS,
+    UPDATE_SCHEDULE_MESSAGE_START,
+    UPDATE_SCHEDULE_MESSAGE_SUCCESS
 } from './types';
 
 const headers = {
@@ -20,7 +28,6 @@ const headers = {
 };
 
 export const getMessageHistory = liveNumber => dispatch => {
-    console.log('liiiive number', liveNumber);
     dispatch({ type: GET_TEXT_START });
     axios
         .get(
@@ -155,6 +162,115 @@ export const getGoals = id => dispatch => {
             });
         })
         .catch(err => {
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+// get scheduled message
+
+export const getScheduledMessage = id => dispatch => {
+    console.log('getScheduledMessages ID', id);
+    dispatch({ type: GET_SCHEDULE_MESSAGE_START });
+    axios
+        .get(
+            `https://coach-me-development.herokuapp.com/twilioRoute/getScheduled/${id}`,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('getScheduledMessages', results.data);
+            // const scheduledMessage = [...results.data.scheduledMessage];
+            dispatch({
+                type: GET_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data.data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+// post scheduled message
+export const addScheduledMessage = message => dispatch => {
+    console.log('getScheduledMessages ID', message);
+    dispatch({ type: ADD_SCHEDULE_MESSAGE_START, payload: message });
+    axios
+        .post(
+            `https://coach-me-development.herokuapp.com/twilioRoute/postScheduled`,
+            message,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            }
+        )
+        .then(results => {
+            console.log('postScheduledMessage', results.data);
+            dispatch({
+                type: ADD_SCHEDULE_MESSAGE_SUCCESS
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+// delete scheduled message
+export const deleteScheduledMessage = id => dispatch => {
+    console.log('deleteScheduledMessages ID', id);
+    dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
+
+    axios
+        .delete(
+            `https://coach-me-development.herokuapp.com/twilioRoute/deleteScheduled/${id}`
+        )
+        .then(results => {
+            console.log('deleteScheduledMessage', results.data);
+            dispatch({
+                type: DELETE_SCHEDULE_MESSAGE_SUCCESS,
+                payload: id
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({
+                type: COACH_ERROR,
+                payload: err.message
+            });
+        });
+};
+
+// update scheduled message
+export const updateScheduledMessage = message => dispatch => {
+    console.log('updateScheduledMessages ID', message);
+    dispatch({ type: UPDATE_SCHEDULE_MESSAGE_START });
+    axios
+        .delete(
+            `https://coach-me-development.herokuapp.com/twilioRoute/updateScheduled/${message.id}`
+        )
+        .then(results => {
+            console.log('updateScheduledMessage', results.data);
+            dispatch({
+                type: UPDATE_SCHEDULE_MESSAGE_SUCCESS,
+                payload: results.data
+            });
+        })
+        .catch(err => {
+            console.log(err);
             dispatch({
                 type: COACH_ERROR,
                 payload: err.message

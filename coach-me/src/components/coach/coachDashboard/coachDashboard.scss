@@ -2,17 +2,27 @@
 .coachdashboard-container {
     padding-top: 8rem;
     display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
 
     .clientlist-container {
-        width: 15%;
         border: 2px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.05);
+
         form {
             margin-top: -20px;
         }
     }
-    .clientinfo-container {
-        width: 60%;
 
+    .clientinfo-container {
+        overflow-x: scroll;
+        width: 60%;
         background-color: #f6f6f6;
         display: flex;
         flex-direction: column;
@@ -20,15 +30,29 @@
     }
     .coach-messaging {
         width: 33%;
-        height: 90vh;
-        // position:absolute;
-        // right:0;
+        display: flex;
     }
 }
-.message-container {
-    max-height: 70vh;
-    height: 70vh;
+
+//custom scroll bar style
+.clientinfo-container::-webkit-scrollbar {
+    width: 10px;
 }
-CoachMessaging {
-    border: 2px solid rgba(0, 0, 0, 0.05);
+
+/* Track */
+.clientinfo-container::-webkit-scrollbar-track {
+    display: none;
+}
+.clientinfo-container::-webkit-scrollbar-track:hover {
+    display: block;
+    background-color: rgba(201, 201, 201, 0.15);
+}
+
+/* Handle */
+.clientinfo-container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #c4cfdda9;
+}
+.clientinfo-container::-webkit-scrollbar-thumb:hover {
+    background: #6d747c;
 }

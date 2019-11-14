@@ -13,7 +13,7 @@ const WelcomeScreen = props => {
     useEffect(() => {
         axios
             .get(
-                `https://coach-me-backend.herokuapp.com/clientRoute/getCoachInfo`,
+                `${process.env.REACT_APP_BACK_END_URL}/clientRoute/getCoachInfo`,
                 {
                     headers: {
                         Authorization: localStorage.getItem('token')
@@ -40,7 +40,7 @@ const WelcomeScreen = props => {
             </div>
 
             <p className='footerText'>
-                {coach && coach.coachObject.coachName}
+                {coach && coach.coachObject.coachName}{' '}
                 {translate('welcomeMessage')}
             </p>
 

@@ -22,7 +22,7 @@ const GoalsDisplay = props => {
         setShow(!show);
     };
 
-    console.log('GoalsDisplay Component State', state);
+    // console.log('GoalsDisplay Component State', state);
     // console.log('GoalsDisplay Component props', props);
 
     return (

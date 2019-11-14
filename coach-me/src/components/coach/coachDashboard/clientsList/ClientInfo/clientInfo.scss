@@ -139,7 +139,13 @@
         }
     }
 }
+
 // styling for client search input in SearchForm.js
+
+.search-form {
+    margin-right: 10px;
+}
+
 .search-input {
     text-align: center;
     width: 100%;
@@ -162,11 +168,39 @@
 .ghost {
     display: none;
 }
+
+.scroll-list {
+    overflow-y: scroll;
+}
+
+//custom scroll bar style
+.scroll-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.scroll-list::-webkit-scrollbar-track {
+    display: none;
+}
+.scroll-list::-webkit-scrollbar-track:hover {
+    display: block;
+    background-color: rgba(201, 201, 201, 0.15);
+}
+
+/* Handle */
+.scroll-list::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #c4cfdda9;
+}
+.scroll-list::-webkit-scrollbar-thumb:hover {
+    background: #6d747c;
+}
+
 .client-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #c4cfdd;
+    border: 2px solid #c4cfdd;
     width: 100%;
     padding: 10%;
     background-color: #edf2f8;
@@ -184,8 +218,4 @@
     h1 {
         color: #ffffff;
     }
-}
-
-.scrollbar-container {
-    width: 100%;
 }

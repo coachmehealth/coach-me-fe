@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    height: 4%;
+    height: 17%;
     width: 100%;
 
     .live-message {
@@ -39,6 +39,10 @@
     cursor: pointer;
 }
 
+.scroll-to-bottom {
+    display: flex;
+}
+
 .message-container {
     display: flex;
     flex-direction: column;
@@ -60,8 +64,9 @@
             padding: 10px;
         }
         .time {
-            font-size: 1.7rem;
+            font-size: 1.4rem;
             color: lightslategray;
+            font-family: DM sans;
         }
     }
     .left {
@@ -110,7 +115,10 @@ textarea {
 }
 .message-wrapper {
     border: 2px solid rgba(0, 0, 0, 0.05);
-    position: fixed;
+    // position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 .text-input {
     display: flex;
@@ -149,6 +157,29 @@ textarea {
     margin-left: 1rem;
 }
 
-.scrollbar-container {
+.scrollbar-message-container {
     width: 100%;
+    display: flex;
+}
+
+//custom scroll bar style
+.scrollbar-message-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.scrollbar-message-container::-webkit-scrollbar-track {
+    background-color: rgba(201, 201, 201, 0.05);
+}
+.scrollbar-message-container::-webkit-scrollbar-track:hover {
+    background-color: rgba(201, 201, 201, 0.15);
+}
+
+/* Handle */
+.scrollbar-message-container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #c4cfdda9;
+}
+.scrollbar-message-container::-webkit-scrollbar-thumb:hover {
+    background: #6d747c;
 }
