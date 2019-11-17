@@ -1,0 +1,192 @@
+.message-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #f6f6f6;
+
+    height: 100vh;
+
+    .title-text {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 22px;
+        color: #1c3048;
+        margin-left: 3.5%;
+    }
+
+    .back-bttn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        cursor: pointer;
+        h1 {
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 22px;
+            color: #1c3048;
+            margin-left: 10px;
+        }
+    }
+
+    .message-list-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 56rem;
+        .schedule-scrollbar-container {
+            width: 100%;
+        }
+
+        .message-card-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 3rem;
+
+            .message-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 8rem;
+                justify-content: space-evenly;
+                background: #ffffff;
+                border-radius: 15px;
+                width: 92.5%;
+
+                .date-time-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    width: 30%;
+
+                    .date-container {
+                        display: flex;
+                        font-family: DM Sans;
+                        font-weight: bold;
+                        line-height: 16px;
+                        font-size: 1.5rem;
+                        p {
+                            color: #1c3048;
+                        }
+                    }
+                    .time-container {
+                        display: flex;
+                        font-family: DM Sans;
+                        font-weight: 500;
+                        line-height: 16px;
+                        font-size: 1.5rem;
+                        p {
+                            color: #1c3048;
+                        }
+                    }
+                }
+                .scheduled-message-container {
+                    width: 50%;
+                    font-family: DM Sans;
+                    font-style: normal;
+                    font-size: 1.8rem;
+                    line-height: 16px;
+
+                    p {
+                        color: #1c3048;
+                        word-wrap: break-word;
+                    }
+                }
+            }
+            .button-container {
+                width: 83%;
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 10px;
+                .edit-bttn {
+                    font-family: DM Sans;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1.5rem;
+                    line-height: 16px;
+                    color: #6d8eb4;
+                    outline: none;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                }
+                .delete-bttn {
+                    font-family: DM Sans;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1.5rem;
+                    line-height: 16px;
+                    color: #d95864;
+                    outline: none;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}
+
+.mini-card {
+    background: #ffffff;
+    border-radius: 15px;
+    width: 85%;
+
+    margin: 1rem;
+
+    .mini-card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1.5rem;
+
+        .date-time-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+
+            .date-container {
+                display: flex;
+                font-family: DM Sans;
+                font-weight: bold;
+                line-height: 16px;
+                font-size: 1.5rem;
+                p {
+                    color: #1c3048;
+                }
+            }
+            .time-container {
+                display: flex;
+                font-family: DM Sans;
+                font-weight: 500;
+                line-height: 16px;
+                font-size: 1.5rem;
+                p {
+                    color: #1c3048;
+                }
+            }
+        }
+        .mini-message-container {
+            width: 45%;
+            font-family: DM Sans;
+            font-style: normal;
+            font-size: 1.8rem;
+            line-height: 16px;
+
+            p {
+                color: #1c3048;
+                word-wrap: break-word;
+            }
+        }
+    }
+}

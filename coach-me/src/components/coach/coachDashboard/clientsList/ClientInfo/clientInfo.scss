@@ -204,14 +204,12 @@
     width: 100%;
     padding: 10%;
     background-color: #edf2f8;
-    h1 {
+    .name-container {
         font-family: 'DM Sans';
-        font-size: 1.6rem;
-        text-align: center;
+        font-size: 2rem;
         color: #274160;
     }
 }
-
 .active1 {
     background-color: #9ab2ce;
 

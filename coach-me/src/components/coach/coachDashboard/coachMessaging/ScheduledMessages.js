@@ -1,21 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ScheduledMessagesList from './ScheduledMessagesList';
+import ScheduleModal from './ScheduleModal';
 import {
     getScheduledMessage,
     addScheduledMessage
 } from '../../../../actions/coachActions';
+import { ReactComponent as Calendar } from '../../../utils/assets/calendar.svg';
+import { ReactComponent as Clock } from '../../../utils/assets/clock.svg';
+// import {Arrow} from '../../../utils/assets/downArrow.svg';
 
 import './ScheduledMessages.scss';
 
 function ScheduledMessages(props) {
-    const { clientprofile } = props;
+    const { clientprofile, type } = props;
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
+    const [show, setShow] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [showScheduleModal, setScheduleModal] = useState(false);
 
+    // const messageArray = useRef(state.ScheduledMessages);
     // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
-        patientId: `${clientprofile.clientId}`,
+        patientId: '',
         msg: '',
         min: '',
         hour: '',
@@ -26,29 +33,76 @@ function ScheduledMessages(props) {
         year: ''
     });
 
+    //forces the patientID to be the same as the clientID when client name is clicked
+    useEffect(() => {
+        setSchedule({ patientId: `${clientprofile.clientId}` });
+    }, [clientprofile.clientId]);
+
+    //possibly more consistant than calling in the actions after the post
     useEffect(() => {
         dispatch(getScheduledMessage(clientprofile.clientId));
+        setSubmitted(false);
+    }, [submitted]);
 
-        // eslint-disable-next-line
-    }, [clientprofile.clientId]);
+    //repeat monthly checkbox set disable on required input fields
+    const [checkedValueMonthly, setCheckedValueMonthly] = useState(false);
+    const repeatMonthlyUpdate = e => {
+        const repeatMonthly = {
+            weekday: '',
+            month: '',
+            year: ''
+        };
+        const boolean = e.target.checked;
+        setCheckedValueMonthly(boolean);
+        setSchedule({ ...schedule, ...repeatMonthly });
+    };
+
+    //repeat weekly checkbox set disable on required input fields
+    const [checkedValueWeekly, setCheckedValueWeekly] = useState(false);
+    const repeatWeeklyUpdate = e => {
+        const repeatWeekly = {
+            dom: '',
+            month: '',
+            year: ''
+        };
+        const boolean = e.target.checked;
+        setCheckedValueWeekly(boolean);
+        setSchedule({ ...schedule, ...repeatWeekly });
+    };
 
     const handleInputChange = e => {
         e.preventDefault();
         setSchedule({ ...schedule, [e.target.name]: e.target.value });
     };
-    console.log(clientprofile.clientId);
+
+    const toggleScheduleModal = () => {
+        setScheduleModal(!showScheduleModal);
+    };
 
     const submitNewMessage = e => {
+        console.log('REPEAT CHECK BOX EDIT??', schedule);
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
+        setSubmitted(true);
+        setSchedule({
+            patientId: `${clientprofile.clientId}`,
+            msg: '',
+            min: '',
+            hour: '',
+            dom: '',
+            month: '',
+            weekday: '',
+            ampm: '',
+            year: ''
+        });
     };
 
     return (
         <>
             <div className='message-container'>
-                <h1>Schedule a Message</h1>
+                <h1 className='title'>Schedule a Message</h1>
 
-                <form onSubmit={submitNewMessage}>
+                <form className='sch-form' onSubmit={submitNewMessage}>
                     <textarea
                         rows='4'
                         cols='50'
@@ -61,13 +115,19 @@ function ScheduledMessages(props) {
                     ></textarea>
 
                     <div className='date-wrapper'>
+                        <Calendar />
                         <h2>DATE</h2>
 
                         <div className='selectheader'>
+                            <div className='arrow'></div>
+
                             <select
                                 name='month'
                                 value={schedule.month}
                                 onChange={handleInputChange}
+                                disabled={
+                                    checkedValueMonthly || checkedValueWeekly
+                                }
                             >
                                 <option value='' disabled selected>
                                     Month
@@ -87,13 +147,15 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='dom'
                                 value={schedule.dom}
                                 onChange={handleInputChange}
+                                disabled={checkedValueWeekly}
                             >
                                 <option value='' disabled selected>
-                                    Day of Month
+                                    Date
                                 </option>
                                 <option value={'1'}>1</option>
                                 <option value={'2'}>2</option>
@@ -129,10 +191,14 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='year'
                                 value={schedule.year}
                                 onChange={handleInputChange}
+                                disabled={
+                                    checkedValueMonthly || checkedValueWeekly
+                                }
                             >
                                 <option value='' disabled selected>
                                     Year
@@ -169,8 +235,9 @@ function ScheduledMessages(props) {
                     </div>
 
                     <div className='time-wrapper'>
-                        <h2>TIME</h2>
+                        <Clock /> <h2>TIME</h2>
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='hour'
                                 value={schedule.hour}
@@ -193,8 +260,8 @@ function ScheduledMessages(props) {
                                 <option value={'12'}>12</option>
                             </select>
                         </div>
-
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='min'
                                 value={schedule.min}
@@ -203,15 +270,15 @@ function ScheduledMessages(props) {
                                 <option value='' disabled selected>
                                     Minutes
                                 </option>
-                                <option value={'1'}>1</option>
-                                <option value={'2'}>2</option>
-                                <option value={'3'}>3</option>
-                                <option value={'4'}>4</option>
-                                <option value={'5'}>5</option>
-                                <option value={'6'}>6</option>
-                                <option value={'7'}>7</option>
-                                <option value={'8'}>8</option>
-                                <option value={'9'}>9</option>
+                                <option value={'01'}>01</option>
+                                <option value={'02'}>02</option>
+                                <option value={'03'}>03</option>
+                                <option value={'04'}>04</option>
+                                <option value={'05'}>05</option>
+                                <option value={'06'}>06</option>
+                                <option value={'07'}>07</option>
+                                <option value={'08'}>08</option>
+                                <option value={'09'}>09</option>
                                 <option value={'10'}>10</option>
                                 <option value={'11'}>11</option>
                                 <option value={'12'}>12</option>
@@ -265,8 +332,8 @@ function ScheduledMessages(props) {
                                 <option value={'60'}>60</option>
                             </select>
                         </div>
-
                         <div className='selectheader'>
+                            <div className='arrow'></div>
                             <select
                                 name='ampm'
                                 value={schedule.ampm}
@@ -280,15 +347,56 @@ function ScheduledMessages(props) {
                             </select>
                         </div>
                     </div>
+                    <div className='repeat'>
+                        <label>Repeat</label>
+                        <input
+                            type='checkbox'
+                            id='weekly'
+                            onChange={repeatWeeklyUpdate}
+                        />
+                        <label for='weekly'>Weekly</label>
+                        <select
+                            className={`weekday ${
+                                !checkedValueWeekly ? 'hide' : null
+                            }`}
+                            name='weekday'
+                            value={schedule.weekday}
+                            onChange={handleInputChange}
+                        >
+                            <option value='' disabled selected>
+                                Weekday
+                            </option>
+                            <option value='Sunday'>Sunday</option>
+                            <option value='Monday'>Monday</option>
+                            <option value='Tuesday'>Tuesday</option>
+                            <option value='Wednesday'>Wednesday</option>
+                            <option value='Thursday'>Thursday</option>
+                            <option value='Friday'>Friday</option>
+                            <option value='Saturday'>Saturday</option>
+                        </select>
+                        <input
+                            type='checkbox'
+                            id='monthly'
+                            onChange={repeatMonthlyUpdate}
+                        />
+                        <label for='monthly'>Monthly</label>
+                    </div>
 
-                    <button>Submit</button>
+                    <button
+                        className='sch-submit'
+                        onClick={() => {
+                            toggleScheduleModal();
+                        }}
+                    >
+                        Schedule
+                    </button>
                 </form>
-                <ScheduledMessagesList
+                <ScheduleModal
                     clientId={clientprofile.clientId}
-                    messages={state.scheduledMessage}
+                    show={showScheduleModal}
+                    setShow={toggleScheduleModal}
                 />
             </div>
-            <div></div>
         </>
     );
 }

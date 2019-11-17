@@ -80,11 +80,11 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case GET_SCHEDULE_MESSAGE_SUCCESS:
-            console.log('looook at me', action.payload);
+            // console.log('looook at me', action.payload);
             return {
                 ...state,
                 loading: false,
-                scheduledMessage: [...action.payload],
+                scheduledMessage: action.payload,
                 error: ''
             };
         case GET_CHECKIN:
@@ -115,13 +115,32 @@ export default (state = initialState, action) => {
                 error: ''
             };
         case ADD_SCHEDULE_MESSAGE_START:
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 ...state,
-                loading: true,
-                scheduledMessage: [...state.scheduledMessage, action.payload],
-                error: ''
+                loading: true
             };
+        case ADD_SCHEDULE_MESSAGE_SUCCESS:
+            return {
+                ...state,
+                laoding: false
+            };
+        case UPDATE_SCHEDULE_MESSAGE_SUCCESS:
+            // console.log('UPDATE_SCHEDULE_MESSAGE', action.payload);
+            // return {
+            //     ...state,
+            //     scheduledMessage: state.scheduledMessage.map(message =>
+            //         message.scheduleId === action.payload.id
+            //             ? action.payload
+            //             : message
+            //     )
+            // };
+            return {
+                ...state,
+                loading: false
+                // scheduledMessage: action.payload
+            };
+
         case GET_METRICS_FAILURE:
         case GET_RECORDS_FAILURE:
         case COACH_ERROR:

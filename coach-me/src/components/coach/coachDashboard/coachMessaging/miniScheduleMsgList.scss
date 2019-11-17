@@ -1,0 +1,23 @@
+.mini-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+
+    h1 {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 17px;
+        color: #1c3048;
+        align-self: flex-start;
+        padding: 1.5%;
+
+        margin-left: 2.2rem;
+        margin-bottom: 1rem;
+    }
+}

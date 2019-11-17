@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    height: 17%;
+
     width: 100%;
 
     .live-message {
@@ -11,7 +11,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
+        height: 6.4rem;
         padding: 2rem;
         opacity: 0.3;
         cursor: pointer;
@@ -21,7 +21,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        height: 6.4rem;
         padding: 2rem;
         opacity: 0.3;
         cursor: pointer;
@@ -119,6 +119,8 @@ textarea {
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    background: #f6f6f6;
 }
 .text-input {
     display: flex;
@@ -144,6 +146,9 @@ textarea {
             // margin-right: 5rem;
             // margin-bottom:55533rem;
             // float:top;
+        }
+        .veiw-all-button {
+            border: 1px solid red;
         }
     }
 }
@@ -182,4 +187,37 @@ textarea {
 }
 .scrollbar-message-container::-webkit-scrollbar-thumb:hover {
     background: #6d747c;
+}
+
+.mini-list {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #f6f6f6;
+
+    .veiw-all-button {
+        color: #6d8eb4;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 16px;
+        outline: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        justify-self: flex-start;
+        margin-top: 1.5rem;
+    }
+}
+.ScheduleMessages-Container-Main {
+    display: flex;
+    justify-content: center;
+    background: #f6f6f6;
+    margin-top: 2.3rem;
+
+    // border: 1px solid red;
 }
