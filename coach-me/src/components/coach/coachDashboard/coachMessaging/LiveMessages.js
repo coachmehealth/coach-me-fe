@@ -9,6 +9,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import moment from 'moment';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import socketIOClient from 'socket.io-client';
 
 function LiveMessages(props) {
     // console.log(props);
@@ -21,6 +22,24 @@ function LiveMessages(props) {
         Phone: ''
     });
 
+    useEffect(() => {
+        const socket = socketIOClient('http://localhost:5000');
+        socket.on('connect', () => {
+            socket.send('Connected');
+        });
+
+        console.log('CLIENT', clientprofile);
+
+        socket.emit('client', () => {
+            socket.send({ clientprofile: clientprofile });
+        });
+
+        return () => {
+            socket.disconnect('disconnect', () => {
+                socket.send('Disconnected');
+            });
+        };
+    }, []);
     useEffect(() => {
         if (clientprofile) {
             dispatch(getMessageHistory(clientprofile.clientPhone));
