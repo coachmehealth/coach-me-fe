@@ -39,8 +39,8 @@ const LoginCoach = props => {
     }, [email, password]);
 
     const handleSubmit = e => {
-        console.log(creds);
         e.preventDefault();
+        localStorage.clear();
         dispatch(loginCoach(creds)).then(() => {
             props.history.push('/dashboard');
         });
