@@ -6,6 +6,7 @@ import {
 } from '../../../../actions/coachActions';
 import { ReactComponent as Exit } from '../../../utils/assets/Xicon.svg';
 import './scheduleModal.scss';
+
 const ScheduleModal = props => {
     // console.log('ScheduleModal', props);
     const { show, setShow } = props;
