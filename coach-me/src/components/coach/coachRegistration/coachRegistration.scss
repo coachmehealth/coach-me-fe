@@ -13,7 +13,7 @@
     font-family: 'Poppins', sans-serif;
 
     .side-one {
-        width: 50%;
+        width: 45%;
         background-image: url('https://imgur.com/BjBin1U.png');
         background-repeat: no-repeat;
         background-position: center;
@@ -46,13 +46,12 @@
         }
     }
     .side-two {
-        width: 50%;
+        width: 45%;
         padding: 5% 10% 5% 10%;
         align-self: center;
         display: flex;
         flex-direction: column;
         color: #274160;
-        height: 100%;
 
         h1 {
             font-size: 2.5rem;
