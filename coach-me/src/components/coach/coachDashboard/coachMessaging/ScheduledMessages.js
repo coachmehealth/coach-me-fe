@@ -1,26 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+// Component Imports
 import ScheduleModal from './ScheduleModal';
+
+//Redux Actions
 import {
     getScheduledMessage,
     addScheduledMessage
 } from '../../../../actions/coachActions';
+
+// SVG Imports
 import { ReactComponent as Calendar } from '../../../utils/assets/calendar.svg';
 import { ReactComponent as Clock } from '../../../utils/assets/clock.svg';
-// import {Arrow} from '../../../utils/assets/downArrow.svg';
 
+//Styling
 import './ScheduledMessages.scss';
 
 function ScheduledMessages(props) {
-    const { clientprofile, type } = props;
+    const { clientprofile } = props;
     const dispatch = useDispatch();
-    const state = useSelector(state => state.coach);
-    const [show, setShow] = useState(false);
+
     const [submitted, setSubmitted] = useState(false);
     const [showScheduleModal, setScheduleModal] = useState(false);
 
-    // const messageArray = useRef(state.ScheduledMessages);
-    // console.log('ScheduledMessages STATE', state);
     const [schedule, setSchedule] = useState({
         patientId: '',
         msg: '',
@@ -98,26 +101,6 @@ function ScheduledMessages(props) {
         });
     };
 
-    // const onEnterPress = e => {
-    //     if (e.keyCode == 13 && e.shiftKey == false) {
-    //         e.preventDefault();
-    //         dispatch(addScheduledMessage(schedule));
-    //         setSubmitted(true);
-    //         toggleScheduleModal();
-    //         setSchedule({
-    //             patientId: `${clientprofile.clientId}`,
-    //             msg: '',
-    //             min: '',
-    //             hour: '',
-    //             dom: '',
-    //             month: '',
-    //             weekday: '',
-    //             ampm: '',
-    //             year: ''
-    //         });
-    //     }
-    // };
-
     return (
         <>
             <div className='message-container'>
@@ -128,7 +111,6 @@ function ScheduledMessages(props) {
                         rows='4'
                         cols='50'
                         onChange={handleInputChange}
-                        // onKeyDown={onEnterPress}
                         value={schedule.msg}
                         name='msg'
                         type='text'
@@ -417,14 +399,7 @@ function ScheduledMessages(props) {
                         </label>
                     </div>
 
-                    <button
-                        className='sch-submit'
-                        // onClick={() => {
-                        //     toggleScheduleModal();
-                        // }}
-                    >
-                        Schedule
-                    </button>
+                    <button className='sch-submit'>Schedule</button>
                 </form>
                 <ScheduleModal
                     clientId={clientprofile.clientId}

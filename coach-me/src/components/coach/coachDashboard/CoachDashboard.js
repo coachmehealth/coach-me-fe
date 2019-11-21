@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import './coachDashboard.scss';
 import { useDispatch, useSelector } from 'react-redux';
+
+//Reduct Actions
 import { getClients } from '../../../actions/authActions';
-import { getLastCheckInTime } from '../../../actions/coachActions';
+
+// Component Imports
 import CoachHeader from './CoachHeader';
 import ClientInfo from './clientsList/ClientInfo/ClientInfo';
 import SearchForm from './SearchForm';
 import CoachMessaging from './coachMessaging/CoachMessaging';
 import Metrics from './coachMetricView/Metrics';
 import GoalsDisplay from './goals/GoalsDisplay';
+// Styling
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import './coachDashboard.scss';
 
 const CoachDashboard = props => {
     const [clientprofile, setclientprofile] = useState();
@@ -48,11 +52,15 @@ const CoachDashboard = props => {
                     <SearchForm setClient={setClient} />
                 </div>
                 <div className='clientinfo-container'>
+                    {/* ClientInfo Holds Clients stats coach dashboard */}
                     <ClientInfo clientprofile={clientprofile} />
+                    {/* Goal Display Holds Clients goals */}
                     <GoalsDisplay clientprofile={clientprofile} />
+                    {/* Metric Holds Clients health data */}
                     <Metrics clientprofile={clientprofile} />
                 </div>
                 <div className='coach-messaging'>
+                    {/* Coach Messaging Holds the Components Live Message & Schedule Messages */}
                     <CoachMessaging clientprofile={clientprofile} />
                 </div>
             </div>
