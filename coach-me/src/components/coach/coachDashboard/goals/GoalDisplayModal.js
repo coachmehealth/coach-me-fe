@@ -6,9 +6,8 @@ import './goalDisplayModal.scss';
 
 const GoalDisplayModal = props => {
     const { goals, toggleModal, show } = props;
-
-    const [showAll, setShowAll] = useState(false);
     // using import boolean from goalsDisplay to toggle modal on or off in a conditional
+    console.log('goals', goals);
     if (show) {
         return (
             <div className='goal-modal-container'>
@@ -36,8 +35,6 @@ const GoalDisplayModal = props => {
                                         metGoal={goal.metGoal}
                                         notes={goal.notes}
                                         followups={goal.followups}
-                                        showAll={showAll}
-                                        setShowAll={setShowAll}
                                     />
                                 </div>
                             ))}

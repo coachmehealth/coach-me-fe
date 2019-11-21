@@ -14,7 +14,7 @@ const GoalsDisplay = props => {
     const [show, setShow] = useState(false);
     const { clientprofile } = props;
 
-    // checking to see if the client profile and Id exist and if they do execute the getGoals action from passing in the client id, if client profile is changed the dependency will re render component to reflect new client profile.
+    // checking to see if the client profile and Id exist and if they do execute the getGoals action by passing in the client id, if client profile is changed the dependency will re render component to reflect new client profile.
     useEffect(() => {
         if (clientprofile && clientprofile.clientId) {
             dispatch(getGoals(clientprofile.clientId));

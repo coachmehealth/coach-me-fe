@@ -53,6 +53,7 @@ const GoalCard = props => {
         followUps = 'Follow Up:';
     }
 
+    // conditional rendering of the arrow svg's on toggle
     let arrow;
     if (show === false) {
         arrow = <ArrowDown />;

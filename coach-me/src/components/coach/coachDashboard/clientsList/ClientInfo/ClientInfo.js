@@ -17,6 +17,7 @@ const ClientInfo = props => {
     const [show, setshow] = useState(false);
     const { clientprofile } = props;
 
+    // checking to see if the client profile and Id exist and if they do execute the getLastCheckInTime action by passing in the client id, if client profile is changed the dependency will re render component to reflect new client profile.
     useEffect(() => {
         if (clientprofile && clientprofile.clientId) {
             dispatch(getLastCheckInTime(clientprofile.clientId));
@@ -28,6 +29,7 @@ const ClientInfo = props => {
         setshow(!show);
     };
 
+    // we need to return a zero for any NaN values that are returned from clientCheckIn
     let checkIn;
     if (isNaN(state.clientCheckIn)) {
         checkIn = '0';
