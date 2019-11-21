@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import LiveMessages from './LiveMessages.js';
-import ScheduledMessages from './ScheduledMessages';
-import ViewAllScheduledMessages from './ViewAllScheduledMessages';
-import './coachMessaging.scss';
 import { useSelector, useDispatch } from 'react-redux';
+
+// Component Imports
+import LiveMessages from './LiveMessages.js';
+import ViewAllScheduledMessages from './ViewAllScheduledMessages';
+//Redux Actions
+import { getScheduledMessage } from '../../../../actions/coachActions';
+
+//Styling
+import './coachMessaging.scss';
+
+// SVG Imports
 import { ReactComponent as MessageBubble } from '../assets/messageBubble.svg';
 import { ReactComponent as ScheduleBubble } from '../assets/scheduleBubble.svg';
-import { getScheduledMessage } from '../../../../actions/coachActions';
 
 const CoachMessaging = props => {
     const { clientprofile } = props;
@@ -14,6 +20,7 @@ const CoachMessaging = props => {
     const dispatch = useDispatch();
     const [type, setType] = useState(1);
 
+    // allows for getScheduledMessage to be called in either the live messages view or viewAllScheduledMessages view.
     useEffect(() => {
         if (clientprofile && type === 1) {
             dispatch(getScheduledMessage(clientprofile.clientId));
@@ -56,17 +63,13 @@ const CoachMessaging = props => {
                     <h1 className='message-selector'>Schedule a Message</h1>
                 </div>
             </div>
+            {/* This Switch case allows for switching of component views by looking for type's state to change. */}
             {(() => {
                 switch (type) {
                     case 1:
                         return <LiveMessages clientprofile={clientprofile} />;
                     case 2:
                         return (
-                            // <ScheduledMessages
-                            //     clientprofile={clientprofile}
-                            //     type={type}
-                            // />
-
                             <ViewAllScheduledMessages
                                 clientprofile={clientprofile}
                                 type={type}

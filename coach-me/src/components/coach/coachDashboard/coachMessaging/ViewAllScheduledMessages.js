@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
+// Component Imports
 import ScheduledMessagesList from './ScheduledMessagesList';
 import ScheduledMessages from './ScheduledMessages';
 import MiniScheduleMsgList from './MiniScheduleMsgList';
+
+//Redux Action
 import { getScheduledMessage } from '../../../../actions/coachActions';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+
+//Styling
 import './viewAllScheduledMessages.scss';
 
 function ViewAllScheduledMessages(props) {

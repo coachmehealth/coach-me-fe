@@ -81,7 +81,7 @@ const UserPhoneNumber = props => {
                             data-cy='input2'
                             type='number'
                             id='txt2'
-                            maxLength='3'
+                            maxlength='3'
                             name='dig1'
                             onChange={handleChange}
                             value={input.dig1}
@@ -97,7 +97,7 @@ const UserPhoneNumber = props => {
                             data-cy='input3'
                             type='number'
                             id='txt3'
-                            max='9999'
+                            // max='9999'
                             name='dig2'
                             onChange={handleChange}
                             value={input.dig2}

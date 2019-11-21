@@ -14,11 +14,11 @@ const SearchForm = props => {
     const [query, setquery] = useState();
     const { setClient } = props;
 
+    // The check function allows for the class of 'active1' to be added to the clientcard selected. If a new client is selected this function will remove the styling by looking for the name to not match and the lenth of the classlist of the equal 2.
     const check = goods => {
         Array.from(cardlist).filter(item => {
             const name = item.firstElementChild.textContent;
             if (goods === name) {
-                // console.log(item);
                 item.classList.add('active1');
             }
             if (goods !== name && item.classList.length === 2) {
@@ -26,9 +26,8 @@ const SearchForm = props => {
             }
         });
     };
-
+    //brings all items with className 'client-card' from the virtual D.O.M as an HTMLcollection. This HTMLCollection is made into an array to be filtered in the Check function above.
     const cardlist = document.getElementsByClassName(`client-card`);
-    // console.log(cardlist);
 
     const handleChange = e => {
         e.preventDefault();
@@ -39,7 +38,7 @@ const SearchForm = props => {
         if (clientList.length > 0) {
             setClientList(clientList);
         }
-
+        // query is  client name passed into the search form for the clientList to update when searching for a client.
         if (query) {
             setClientList(
                 clientList.filter(client => {
@@ -84,6 +83,7 @@ const SearchForm = props => {
                                 setClient(client.clientId);
                             }}
                         >
+                            {/* Client Card is each client in the clientList that is rendered under the search input */}
                             <ClientCard
                                 key={client.clientId}
                                 client={client}

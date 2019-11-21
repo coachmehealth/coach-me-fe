@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
+import ScrollToBottom from 'react-scroll-to-bottom';
+import Linkify from 'linkifyjs/react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+
+// Redux Actions
 import {
     getMessageHistory,
     postMessage
 } from '../../../../actions/coachActions';
+
+//Styling
 import './coachMessaging.scss';
-import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import moment from 'moment';
-import ScrollToBottom from 'react-scroll-to-bottom';
-import Linkify from 'linkifyjs/react';
 
 function LiveMessages(props) {
     // console.log(props);
@@ -21,7 +25,7 @@ function LiveMessages(props) {
         message: '',
         Phone: ''
     });
-
+    // this useEffect checks for clientprofile, if a clientprofile is provided, the client phone number(clientprofile.clientPhone) is passed to getMessageHistory function and set client's phone number to state.
     useEffect(() => {
         if (clientprofile) {
             dispatch(getMessageHistory(clientprofile.clientPhone));
@@ -29,7 +33,7 @@ function LiveMessages(props) {
         }
         // eslint-disable-next-line
     }, [clientprofile]);
-
+    // checks for clientprofile, if a client profile is provided this useEffect will run a setInterval function that will poll twilio for new messages, and update the messages on the coach dashboard.
     useEffect(() => {
         if (clientprofile) {
             const interval = setInterval(() => {
