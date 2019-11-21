@@ -30,6 +30,7 @@ function LiveMessages(props) {
         // eslint-disable-next-line
     }, [clientprofile]);
 
+    // we had to use polling to update message history
     useEffect(() => {
         if (clientprofile) {
             const interval = setInterval(() => {
@@ -43,10 +44,11 @@ function LiveMessages(props) {
         }
     }, [clientprofile]);
 
+    // manipulate local state on inputs
     const handleInputChange = e => {
         setMessage({ ...message, message: e.target.value });
     };
-
+    // sets local state and posts the message to the twilio DB
     const submitNewMessage = e => {
         e.preventDefault();
 
@@ -55,6 +57,7 @@ function LiveMessages(props) {
         setMessage({ ...message, message: '' });
     };
 
+    // functionality of using shift enter to create new paragraph and send on enter
     const onEnterPress = e => {
         if (e.keyCode == 13 && e.shiftKey == false) {
             {

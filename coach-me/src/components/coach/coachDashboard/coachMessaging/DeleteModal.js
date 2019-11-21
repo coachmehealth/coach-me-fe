@@ -13,18 +13,20 @@ const DeleteModal = props => {
     const [deleted, setDeleted] = useState(false);
     // console.log(state);
 
+    // useEffect grabs the  scheduled message using client Id from the "scheduledMessages" DB and sets the boolean value of deleted to false.
     useEffect(() => {
         dispatch(getScheduledMessage(clientId));
         setDeleted(false);
     }, [deleted]);
 
+    // onClick the delete message will use the scheduleId and the clientId to delete message and toggle local boolean to true and close the model with setShow()
     const deleteMessage = () => {
         dispatch(deleteScheduledMessage(id, clientId));
         setDeleted(true);
         // removedMessage(id);
         setShow();
     };
-
+    // the setShow from parent is passed through props to toggle the cancel and exit svg.
     return (
         <>
             <div

@@ -234,7 +234,7 @@ export const deleteScheduledMessage = (id, patientId) => dispatch => {
             `${process.env.REACT_APP_BACK_END_URL}/twilioRoute/deleteScheduled/${id}`
         )
         .then(results => {
-            // console.log('deleteScheduledMessage', results.data);
+            console.log('deleteScheduledMessage', results.data);
             dispatch({
                 type: DELETE_SCHEDULE_MESSAGE_SUCCESS,
                 payload: id

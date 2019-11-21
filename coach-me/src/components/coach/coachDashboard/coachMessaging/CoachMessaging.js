@@ -47,8 +47,6 @@ const CoachMessaging = props => {
                     } `}
                     onClick={() => {
                         setType(2);
-
-                        // toggleactive()
                     }}
                     active={type === 2}
                 >
@@ -62,11 +60,6 @@ const CoachMessaging = props => {
                         return <LiveMessages clientprofile={clientprofile} />;
                     case 2:
                         return (
-                            // <ScheduledMessages
-                            //     clientprofile={clientprofile}
-                            //     type={type}
-                            // />
-
                             <ViewAllScheduledMessages
                                 clientprofile={clientprofile}
                                 type={type}
