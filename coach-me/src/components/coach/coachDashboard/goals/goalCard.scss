@@ -33,8 +33,11 @@
     font-size: 1.4rem;
     line-height: 1.6rem;
     color: #1c3048;
+    padding-right: 2.2rem;
 }
-
+.goal-notes-title {
+    text-decoration: underline;
+}
 .goal-notes p {
     font-family: DM Sans;
     font-style: normal;
@@ -43,6 +46,21 @@
     line-height: 1.6rem;
     margin-top: 1rem;
     color: #1c3048;
+    padding-right: 2.2rem;
+}
+.follow-up-title {
+    text-decoration: underline;
+}
+
+.follow-up p {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-top: 1rem;
+    color: #1c3048;
+    padding-right: 2.2rem;
 }
 
 .goal-mas {
@@ -70,16 +88,38 @@
         height: auto;
     }
 
+    .met-goal {
+        p {
+            color: #47b881;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+    .unmet-goal {
+        p {
+            color: #fd6c79;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+    .in-progress {
+        p {
+            color: orange;
+            font-size: 1.3rem;
+            margin-right: 0.4rem;
+        }
+    }
+
     .red-x {
         margin-bottom: 0.6rem;
         width: 2rem;
         height: auto;
     }
 
-    p {
-        font-size: 1.3rem;
-        margin-right: 0.4rem;
-    }
+    // p {
+    //     font-size: 1.3rem;
+    //     margin-right: 0.4rem;
+    // }
 }
 
 .hidden {

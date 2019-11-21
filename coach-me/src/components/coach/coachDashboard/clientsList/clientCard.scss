@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
 
+.name-container {
+    h1 {
+        font-family: 'DM Sans';
+        font-size: 1.6rem;
+        color: #274160;
+        font-weight: medium;
+        width: 100%;
+    }
+}
+
 .client-card {
     display: flex;
     align-items: center;
@@ -8,11 +18,11 @@
     padding: 10%;
     background-color: #edf2f8;
     cursor: pointer;
-
         h1 {
         font-family: 'DM Sans';
         font-size: 1.6rem;
         color: #274160;
+        font-weight: medium;
     }
 }
 

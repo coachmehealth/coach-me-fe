@@ -37,7 +37,9 @@ const UserPhoneNumber = props => {
     return (
         <div className='phonenumber-container'>
             <div className='img-container'>
-                <Logo />
+                <a href='https://www.coachmehealth.org'>
+                    <Logo />
+                </a>
             </div>
             <div className='text-content'>
                 <div className='header'>
@@ -93,8 +95,7 @@ const UserPhoneNumber = props => {
                         <span>-</span>
                         <input
                             data-cy='input3'
-                            type='number'
-                            maxlength='4'
+                            type='text'
                             id='txt3'
                             // max='9999'
                             name='dig2'
@@ -102,7 +103,8 @@ const UserPhoneNumber = props => {
                             value={input.dig2}
                             pattern='[0-9]*'
                             ng-model='vm.onlyNumbers'
-                            // min='0'
+                            min='0'
+                            maxLength='4'
                         />
                     </div>
                     <button className='trigger' type='submit'>

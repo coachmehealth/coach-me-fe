@@ -13,15 +13,19 @@
         font-size: 1.8rem;
         line-height: 22px;
         color: #1c3048;
-        margin-left: 3.5%;
+        margin: 4.5%;
     }
 
     .back-bttn-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20%;
+        max-width: 20%;
         cursor: pointer;
+        margin-top: 2rem;
+        .back-button-sheduler {
+            width: 2rem;
+        }
         h1 {
             font-family: DM Sans;
             font-style: normal;
@@ -50,17 +54,19 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
 
             .message-card {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 8rem;
+
                 justify-content: space-evenly;
                 background: #ffffff;
                 border-radius: 15px;
                 width: 92.5%;
+                height: 90%;
+                padding: 2rem;
 
                 .date-time-wrapper {
                     display: flex;
@@ -80,7 +86,8 @@
                     .time-container {
                         display: flex;
                         font-family: DM Sans;
-                        font-weight: 500;
+                        font-weight: bold;
+                        padding-top: 0.5rem;
                         line-height: 16px;
                         font-size: 1.5rem;
                         p {
@@ -89,14 +96,14 @@
                     }
                 }
                 .scheduled-message-container {
-                    width: 50%;
+                    width: 75%;
                     font-family: DM Sans;
                     font-style: normal;
                     font-size: 1.8rem;
                     line-height: 16px;
 
                     p {
-                        color: #1c3048;
+                        color: #355478;
                         word-wrap: break-word;
                     }
                 }
@@ -140,15 +147,18 @@
     background: #ffffff;
     border-radius: 15px;
     width: 85%;
-
+    display: flex;
+    justify-content: center;
     margin: 1rem;
 
     .mini-card-container {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        width: 100%;
         padding: 1.5rem;
+        width: 92.5%;
+        height: 90%;
+        padding: 2rem;
 
         .date-time-wrapper {
             display: flex;
@@ -168,7 +178,8 @@
             .time-container {
                 display: flex;
                 font-family: DM Sans;
-                font-weight: 500;
+                font-weight: bold;
+                padding-top: 0.5rem;
                 line-height: 16px;
                 font-size: 1.5rem;
                 p {
@@ -177,14 +188,14 @@
             }
         }
         .mini-message-container {
-            width: 45%;
+            width: 75%;
             font-family: DM Sans;
             font-style: normal;
             font-size: 1.8rem;
             line-height: 16px;
 
             p {
-                color: #1c3048;
+                color: #355478;
                 word-wrap: break-word;
             }
         }

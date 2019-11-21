@@ -50,7 +50,7 @@ export const getMessageHistory = liveNumber => dispatch => {
 };
 
 export const postMessage = post => dispatch => {
-    console.log(post);
+    // console.log(post);
     dispatch({ type: ADD_TEXT_START });
     axios
 
@@ -154,7 +154,7 @@ export const getGoals = id => dispatch => {
             }
         )
         .then(results => {
-            // console.log('getGoals actions', results);
+            console.log('getGoals actions', results);
             const clientGoals = [...results.data.patientGoals];
             dispatch({
                 type: GET_GOALS,
@@ -172,7 +172,7 @@ export const getGoals = id => dispatch => {
 // get scheduled message
 
 export const getScheduledMessage = id => dispatch => {
-    console.log('getScheduledMessages ID', id);
+    // console.log('getScheduledMessages ID', id);
     dispatch({ type: GET_SCHEDULE_MESSAGE_START });
     axios
         .get(
@@ -230,7 +230,7 @@ export const addScheduledMessage = message => dispatch => {
 
 // delete scheduled message
 export const deleteScheduledMessage = (id, patientId) => dispatch => {
-    console.log('deleteScheduledMessages ID', id);
+    // console.log('deleteScheduledMessages ID', id);
     dispatch({ type: DELETE_SCHEDULE_MESSAGE_START });
     axios
         .delete(

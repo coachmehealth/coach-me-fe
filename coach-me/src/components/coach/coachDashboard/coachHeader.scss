@@ -18,6 +18,11 @@
             padding-right: 1rem;
         }
     }
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .small-profile {
         display: flex;

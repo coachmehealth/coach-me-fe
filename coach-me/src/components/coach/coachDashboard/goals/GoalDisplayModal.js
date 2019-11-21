@@ -9,24 +9,6 @@ const GoalDisplayModal = props => {
 
     const [showAll, setShowAll] = useState(false);
 
-    // const expandAll = (
-    //     <button
-    //         className='modal-button-expand'
-    //         onClick={() => setShowAll(!showAll)}
-    //     >
-    //         Expand All
-    //     </button>
-    // );
-    // console.log('showAll', showAll);
-    // const collapseAll = (
-    //     <button
-    //         className='modal-button-close'
-    //         onClick={() => setShowAll(!showAll)}
-    //     >
-    //         Collapse All
-    //     </button>
-    // );
-
     if (show) {
         return (
             <div className='goal-modal-container'>
@@ -55,6 +37,7 @@ const GoalDisplayModal = props => {
                                         goalDetails={goal.goalDetails}
                                         metGoal={goal.metGoal}
                                         notes={goal.notes}
+                                        followups={goal.followups}
                                         showAll={showAll}
                                         setShowAll={setShowAll}
                                     />

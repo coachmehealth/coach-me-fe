@@ -2,7 +2,7 @@
     "English": {
         "hello": "Hello",
         "welcome": "Welcome to",
-        "coachIntro": "Your Health coach",
+        "coachIntro": "Your Health Coach",
         "welcomeMessage": "is here to support you in your health goals. Expect a text message from your coach soon!",
         "HMFtitle": "Today's Numbers",
         "fastingGlucose": "Fasting Blood Glucose",
@@ -28,8 +28,8 @@
     "Spanish": {
         "hello": "Hola",
         "welcome": "Bienvenido a",
-        "coachIntro": "Su entrenador de salud",
-        "welcomeMessage": "está aquí para apoyarlo en sus objetivos de salud. ¡Espere un mensaje de texto de su entrenador pronto!",
+        "coachIntro": "Su Entrenador de Salud",
+        "welcomeMessage": "Estámos aquí para apoyarlo en sus objetivos de salud. ¡Espere un mensaje de texto de su entrenador pronto!",
         "HMFtitle": "Números de Hoy",
         "fastingGlucose": "Glucosa en Sangre en Ayunas",
         "bloodGlucose": "Glucosa en Sangre",

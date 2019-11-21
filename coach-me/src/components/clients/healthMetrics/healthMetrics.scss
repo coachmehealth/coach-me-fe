@@ -58,6 +58,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
+                font-family: DM Sans;
             }
         }
 
@@ -271,7 +272,7 @@
                 background: #ffffff;
 
                 .health-value {
-                    font-family: Poppins;
+                    font-family: DM Sans;
                     font-style: normal;
                     font-weight: 600;
                     font-size: 20px;
@@ -279,7 +280,7 @@
                     background: #ffffff;
                 }
                 .health-scale {
-                    font-family: Poppins;
+                    font-family: DM Sans;
                     font-style: normal;
                     font-weight: 500;
                     font-size: 12px;

@@ -20,17 +20,17 @@
     align-items: center;
     position: absolute;
     background-color: rgba(0, 0, 0, 0);
-    left: 35%;
-    top: 10%;
+    left: 2%;
+    top: 13%;
     .schedule-modal-box {
         @include layout2();
         //  background-color: #ffffff;
         font-family: DM Sans;
         font-style: normal;
         background: #f6f6f6;
-        height: 30%;
+        height: 38%;
         width: 80%;
-        max-width: 19%;
+        max-width: 62%;
         border-radius: 1rem;
         font-size: 1.8rem;
         padding: 1.5%;

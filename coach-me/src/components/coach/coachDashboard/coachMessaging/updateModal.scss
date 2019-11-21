@@ -10,24 +10,24 @@
     border: 1px, solid, green;
 }
 .message-container-modal {
-    width: 30%;
-    height: 90%;
+    width: 29%;
+    height: 70rem;
 
     z-index: 2;
     display: flex;
 
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     background-color: rgba(15, 31, 49, 0.6);
     left: 70%;
-    top: 11%;
+    top: 10%;
     border-radius: 3px;
     margin: 5px;
 
     form {
-        width: 100%;
-        height: 80%;
+        width: 91%;
+        height: 86%;
 
         background: #f3f3f3;
         display: flex;
@@ -53,9 +53,9 @@
         }
         .sch-submit {
             color: white;
-            width: 80%;
-            height: 35px;
-            margin-top: 45px;
+            width: 42%;
+            height: 8%;
+            margin-top: 2.1rem;
 
             background: #274160;
             border-radius: 10px;
@@ -73,6 +73,52 @@
             justify-content: space-evenly;
             width: 100%;
             align-items: center;
+        }
+        .repeat {
+            margin-top: 1.5rem;
+            max-width: 100%;
+            width: 100%;
+            margin-left: 2.3rem;
+            display: flex;
+            align-items: center;
+
+            h3 {
+                margin: 1rem;
+                font-family: DM Sans;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 18px;
+                color: #1c3048;
+            }
+
+            .weekday {
+                margin-left: 1rem;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            label {
+                margin: 1rem;
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 18px;
+
+                /* Primary - 7 */
+
+                color: #1c3048;
+                display: flex;
+                align-items: center;
+            }
+            input {
+                margin-right: 0.5rem;
+                margin-left: 1.4rem;
+                width: 18px;
+                height: 18px;
+            }
         }
         h1 {
             font-family: Montserrat;
@@ -129,26 +175,26 @@
     }
 }
 .delete-modal-container {
-    width: 100%;
-    height: 100%;
+    width: 35%;
+    height: 77%;
 
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     background-color: rgba(0, 0, 0, 0);
-    left: 36.5%;
-    top: 10%;
+    left: 68.5%;
+    top: 24%;
     .delete-modal-box {
         @include layout2();
         //  background-color: #ffffff;
         font-family: DM Sans;
         font-style: normal;
         background: #f6f6f6;
-        height: 30%;
+        height: 35%;
         width: 80%;
-        max-width: 19%;
+        max-width: 56%;
         border-radius: 1rem;
         font-size: 1.8rem;
         padding: 1.5%;

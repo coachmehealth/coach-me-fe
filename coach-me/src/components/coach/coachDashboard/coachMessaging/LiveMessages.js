@@ -9,6 +9,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import moment from 'moment';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import Linkify from 'linkifyjs/react';
 
 function LiveMessages(props) {
     // console.log(props);
@@ -81,7 +82,9 @@ function LiveMessages(props) {
                                             : 'right'
                                     }`}
                                 >
-                                    <p className='text'>{m.body}</p>
+                                    <Linkify>
+                                        <p className='text'>{m.body}</p>
+                                    </Linkify>
                                     <p className='time'>
                                         {moment(m.dateSent).format(
                                             'MMM Do YYYY, h:mm a'

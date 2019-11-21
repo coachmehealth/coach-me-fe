@@ -17,6 +17,7 @@
         width: 50%;
         background-image: url('https://imgur.com/BjBin1U.png');
         background-repeat: no-repeat;
+
         background-position: center;
         background-size: 100% 100%;
         display: flex;
@@ -33,6 +34,8 @@
             width: 70%;
             margin-left: 55px;
             margin-bottom: 20px;
+            align-self: center;
+            margin-bottom: 1.8rem;
         }
 
         .logo-wrapper {
@@ -141,6 +144,7 @@
             line-height: 29px;
             font-weight: bold;
             cursor: pointer;
+            margin-right: 0.5rem;
         }
         .layout-wrapper {
             display: flex;

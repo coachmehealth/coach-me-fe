@@ -23,16 +23,14 @@
 
 .goal-container {
     @include layout();
-    // position: absolute;
-    margin-left: 18%;
-    // left: 10%;
-    // bottom: 25%;
+
     background: #ffffff;
     border-radius: 20px;
-    width: 50%;
+    width: 70%;
     max-height: 80vh;
     padding: 30px 20px;
-    margin-left: 15%;
+    margin-left: 18%;
+
     .modal-label {
         display: flex;
         justify-content: space-between;
@@ -43,8 +41,9 @@
         font-family: DM Sans;
         font-style: normal;
         line-height: 2.9rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         margin-left: 5rem;
+        margin-top: 1rem;
         color: #1c3048;
     }
     .modal-button-close {
@@ -82,8 +81,8 @@
     background: #f6f6f6;
     width: 90%;
     padding: 10px;
-    margin: 0.7rem;
-    margin-left: 2.2rems;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
 }
 
 // .scrollbar-container {

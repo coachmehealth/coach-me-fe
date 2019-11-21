@@ -12,6 +12,7 @@ const SearchForm = props => {
     const clientList = state.clientRecords;
     const [ClientList, setClientList] = useState();
     const [query, setquery] = useState();
+    const { setClient } = props;
 
     const check = goods => {
         Array.from(cardlist).filter(item => {
@@ -50,6 +51,7 @@ const SearchForm = props => {
             );
         }
     }, [query, clientList]);
+    console.log(clientList);
 
     return (
         <>
@@ -74,7 +76,16 @@ const SearchForm = props => {
             <div className='scroll-list'>
                 {ClientList &&
                     ClientList.map(client => (
-                        <div className='client-card'>
+                        <div
+                            className='client-card'
+                            onClick={() => {
+                                console.log(client.clientName);
+                                if (client.clientName) {
+                                    check(client.clientName);
+                                }
+                                setClient(client.clientId);
+                            }}
+                        >
                             <ClientCard
                                 key={client.clientId}
                                 client={client}

@@ -47,6 +47,7 @@ const GoalsDisplay = props => {
                             goalDetails={goal.goalDetails}
                             metGoal={goal.metGoal}
                             notes={goal.notes}
+                            followups={goal.followups}
                         />
                     </div>
                 ))}

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 // Component Imports
 import PrivateRoute from './PrivateRoute';
+import PrivateCoachRoute from './PrivateCoachRoute';
 import HealthMetric from '../clients/healthMetrics/HealthMetric';
 import CoachDashboard from '../coach/coachDashboard/CoachDashboard';
 import ClientDashboard from '../clients/clientDashboard/ClientDashboard';
@@ -36,7 +37,7 @@ const Routes = props => {
             <Route path='/login' component={LoginCoach} />
 
             <PrivateRoute path='/metrics' component={HealthMetric} />
-            <PrivateRoute path='/dashboard' component={CoachDashboard} />
+            <PrivateCoachRoute path='/dashboard' component={CoachDashboard} />
             <PrivateRoute
                 path='/dashboard-client'
                 component={ClientDashboard}

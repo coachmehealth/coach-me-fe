@@ -11,7 +11,7 @@ const DeleteModal = props => {
     const state = useSelector(state => state.coach);
     const dispatch = useDispatch();
     const [deleted, setDeleted] = useState(false);
-    console.log(state);
+    // console.log(state);
 
     useEffect(() => {
         dispatch(getScheduledMessage(clientId));

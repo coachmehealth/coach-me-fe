@@ -51,7 +51,9 @@ const LoginCoach = props => {
             <div className='Login-Wrapper'>
                 <div className='side-one'>
                     <div className='logo-wrapper'>
-                        <Logo className='logo' />
+                        <a href='https://www.coachmehealth.org'>
+                            <Logo className='logo' />
+                        </a>
                     </div>
 
                     <div className='objective'>

@@ -38,7 +38,7 @@ function ScheduledMessages(props) {
         setSchedule({ patientId: `${clientprofile.clientId}` });
     }, [clientprofile.clientId]);
 
-    //possibly more consistant than calling in the actions after the post
+    //updates state directly after scheduling a message
     useEffect(() => {
         dispatch(getScheduledMessage(clientprofile.clientId));
         setSubmitted(false);
@@ -67,6 +67,7 @@ function ScheduledMessages(props) {
         };
         const boolean = e.target.checked;
         setCheckedValueWeekly(boolean);
+        if (checkedValueWeekly) repeatWeekly.weekday = '';
         setSchedule({ ...schedule, ...repeatWeekly });
     };
 
@@ -80,10 +81,10 @@ function ScheduledMessages(props) {
     };
 
     const submitNewMessage = e => {
-        console.log('REPEAT CHECK BOX EDIT??', schedule);
         e.preventDefault();
         dispatch(addScheduledMessage(schedule));
         setSubmitted(true);
+        toggleScheduleModal();
         setSchedule({
             patientId: `${clientprofile.clientId}`,
             msg: '',
@@ -125,6 +126,7 @@ function ScheduledMessages(props) {
                                 name='month'
                                 value={schedule.month}
                                 onChange={handleInputChange}
+                                required
                                 disabled={
                                     checkedValueMonthly || checkedValueWeekly
                                 }
@@ -132,18 +134,18 @@ function ScheduledMessages(props) {
                                 <option value='' disabled selected>
                                     Month
                                 </option>
-                                <option value={'Jan'}>January</option>
-                                <option value={'Feb'}>February</option>
-                                <option value={'Mar'}>March</option>
-                                <option value={'Apr'}>April</option>
+                                <option value={'Jan'}>Jan</option>
+                                <option value={'Feb'}>Feb</option>
+                                <option value={'Mar'}>Mar</option>
+                                <option value={'Apr'}>Apr</option>
                                 <option value={'May'}>May</option>
-                                <option value={'Jun'}>June</option>
-                                <option value={'Jul'}>July</option>
-                                <option value={'Aug'}>August</option>
-                                <option value={'Sep'}>September</option>
-                                <option value={'Oct'}>October</option>
-                                <option value={'Nov'}>November</option>
-                                <option value={'Dec'}>December</option>
+                                <option value={'Jun'}>Jun</option>
+                                <option value={'Jul'}>Jul</option>
+                                <option value={'Aug'}>Aug</option>
+                                <option value={'Sep'}>Sep</option>
+                                <option value={'Oct'}>Oct</option>
+                                <option value={'Nov'}>Nov</option>
+                                <option value={'Dec'}>Dec</option>
                             </select>
                         </div>
                         <div className='selectheader'>
@@ -152,6 +154,7 @@ function ScheduledMessages(props) {
                                 name='dom'
                                 value={schedule.dom}
                                 onChange={handleInputChange}
+                                required
                                 disabled={checkedValueWeekly}
                             >
                                 <option value='' disabled selected>
@@ -196,6 +199,7 @@ function ScheduledMessages(props) {
                                 name='year'
                                 value={schedule.year}
                                 onChange={handleInputChange}
+                                required
                                 disabled={
                                     checkedValueMonthly || checkedValueWeekly
                                 }
@@ -242,6 +246,7 @@ function ScheduledMessages(props) {
                                 name='hour'
                                 value={schedule.hour}
                                 onChange={handleInputChange}
+                                required
                             >
                                 <option value='' disabled selected>
                                     Hour
@@ -266,10 +271,12 @@ function ScheduledMessages(props) {
                                 name='min'
                                 value={schedule.min}
                                 onChange={handleInputChange}
+                                required
                             >
                                 <option value='' disabled selected>
                                     Minutes
                                 </option>
+                                <option value={'00'}>00</option>
                                 <option value={'01'}>01</option>
                                 <option value={'02'}>02</option>
                                 <option value={'03'}>03</option>
@@ -338,6 +345,7 @@ function ScheduledMessages(props) {
                                 name='ampm'
                                 value={schedule.ampm}
                                 onChange={handleInputChange}
+                                required
                             >
                                 <option value='' disabled selected>
                                     AM/PM
@@ -348,20 +356,24 @@ function ScheduledMessages(props) {
                         </div>
                     </div>
                     <div className='repeat'>
-                        <label>Repeat</label>
-                        <input
-                            type='checkbox'
-                            id='weekly'
-                            onChange={repeatWeeklyUpdate}
-                        />
-                        <label for='weekly'>Weekly</label>
+                        <h3>Repeat</h3>
+                        <label for='weekly'>
+                            <input
+                                type='checkbox'
+                                id='weekly'
+                                onChange={repeatWeeklyUpdate}
+                            />
+                            Weekly
+                        </label>
                         <select
                             className={`weekday ${
-                                !checkedValueWeekly ? 'hide' : null
+                                !checkedValueWeekly ? 'hide' : ''
                             }`}
                             name='weekday'
                             value={schedule.weekday}
                             onChange={handleInputChange}
+                            required={checkedValueWeekly}
+                            disabled={!checkedValueWeekly}
                         >
                             <option value='' disabled selected>
                                 Weekday
@@ -374,19 +386,21 @@ function ScheduledMessages(props) {
                             <option value='Friday'>Friday</option>
                             <option value='Saturday'>Saturday</option>
                         </select>
-                        <input
-                            type='checkbox'
-                            id='monthly'
-                            onChange={repeatMonthlyUpdate}
-                        />
-                        <label for='monthly'>Monthly</label>
+                        <label for='monthly'>
+                            <input
+                                type='checkbox'
+                                id='monthly'
+                                onChange={repeatMonthlyUpdate}
+                            />
+                            Monthly
+                        </label>
                     </div>
 
                     <button
                         className='sch-submit'
-                        onClick={() => {
-                            toggleScheduleModal();
-                        }}
+                        // onClick={() => {
+                        //     toggleScheduleModal();
+                        // }}
                     >
                         Schedule
                     </button>

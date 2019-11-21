@@ -7,7 +7,7 @@
     justify-content: space-evenly;
     margin-bottom: 15px;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 2.5rem;
 
     width: 100%;
     h2 {
@@ -17,6 +17,7 @@
         font-size: 1.6rem;
         line-height: 18px;
         color: #1c3048;
+        margin-left: 0.4rem;
     }
 }
 
@@ -28,12 +29,65 @@
     width: 100%;
     margin: 1.5rem;
 
+    .repeat {
+        margin-top: 2.5rem;
+        max-width: 100%;
+        width: 100%;
+        margin-left: 2.3rem;
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin: 1rem;
+            font-family: DM Sans;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            color: #1c3048;
+        }
+
+        .weekday {
+            margin-left: 1rem;
+            width: 85px;
+            height: 31px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1.25px solid #274160;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        label {
+            margin: 1rem;
+            font-family: DM Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+
+            /* Primary - 7 */
+
+            color: #1c3048;
+            display: flex;
+            align-items: center;
+        }
+        input {
+            margin-right: 0.5rem;
+            margin-left: 1.4rem;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
     .time-wrapper {
         display: flex;
         justify-content: space-evenly;
         width: 100%;
         align-items: center;
-        margin-top: 2.5rem;
+        margin-top: 0.5rem;
 
         h2 {
             font-family: DM Sans;
@@ -42,6 +96,7 @@
             font-size: 1.6rem;
             line-height: 18px;
             color: #1c3048;
+            margin: 0.2rem;
         }
     }
     .title {
@@ -51,7 +106,7 @@
         font-size: 2rem;
         line-height: 22px;
         color: #1c3048;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
         align-self: start;
         margin-left: 4rem;
     }
@@ -96,6 +151,7 @@
                 font-size: 1.5rem;
                 line-height: 16px;
                 width: 10rem;
+                margin: 0.4rem;
                 // -webkit-appearance: none;
                 // -moz-appearance: none;
                 // appearance: none;
@@ -105,6 +161,11 @@
                 color: #274160;
                 background-image: url(../../../utils/assets/downArrow.svg)
                     no-repeat;
+
+                &:disabled {
+                    color: #000000;
+                    opacity: 0.3;
+                }
             }
         }
         .sch-submit {
@@ -115,7 +176,7 @@
             outline: none;
             cursor: pointer;
             color: #ffffff;
-            margin-top: 45px;
+            margin-top: 2rem;
             // margin-top:45px;
         }
     }

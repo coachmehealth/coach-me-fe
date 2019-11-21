@@ -5,7 +5,7 @@ import './miniScheduleMsgList.scss';
 
 function MiniScheduleMsgList(props) {
     const { messages } = props;
-    console.log('MiniScheduleMsgList', messages);
+    // console.log('MiniScheduleMsgList', messages);
     const [messagelist, setmessagelist] = useState([]);
     const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ function MiniScheduleMsgList(props) {
             <>
                 <div className='mini-list-container'>
                     <h1>Previously Scheduled Messages</h1>
-                    {messagelist.slice(-2).map(item => (
+                    {messagelist.slice(-1).map(item => (
                         <div className='mini-card'>
                             <MiniMessageCard
                                 item={item}
