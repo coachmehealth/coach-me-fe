@@ -95,7 +95,7 @@ const UserPhoneNumber = props => {
                         <span>-</span>
                         <input
                             data-cy='input3'
-                            type='text'
+                            type='number'
                             id='txt3'
                             // max='9999'
                             name='dig2'

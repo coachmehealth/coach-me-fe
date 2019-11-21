@@ -11,6 +11,7 @@ import {
     GET_RECORDS_FAILURE
 } from './types';
 
+//Coach Registration endpoint
 export const registerCoach = register => dispatch => {
     const creds = register.records[0].fields;
     dispatch({ type: REGISTER_START });
@@ -35,6 +36,7 @@ export const registerCoach = register => dispatch => {
         });
 };
 
+//Coach login endpoint
 export const loginCoach = creds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios
@@ -56,6 +58,7 @@ export const loginCoach = creds => dispatch => {
         });
 };
 
+//Get Coach Clientlist
 export const getClients = token => dispatch => {
     const headers = { Authorization: token };
     dispatch({ type: GET_RECORDS_START });

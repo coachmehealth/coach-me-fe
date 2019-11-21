@@ -12,7 +12,6 @@ function ViewAllScheduledMessages(props) {
     const dispatch = useDispatch();
     const state = useSelector(state => state.coach);
     const [show, setShow] = useState(false);
-    const [messagelist, setmessagelist] = useState([]);
 
     //initial GET for scheduled Messages, useEffect set to change when new client is clicked
     useEffect(() => {
@@ -22,7 +21,7 @@ function ViewAllScheduledMessages(props) {
     const toggleScheduler = e => {
         setShow(!show);
     };
-
+    // toggling two different views off local state boolean value so we can see the various features of schedule a message
     if (!show) {
         return (
             <>

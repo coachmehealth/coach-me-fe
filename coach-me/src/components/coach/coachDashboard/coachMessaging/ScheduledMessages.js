@@ -98,6 +98,26 @@ function ScheduledMessages(props) {
         });
     };
 
+    // const onEnterPress = e => {
+    //     if (e.keyCode == 13 && e.shiftKey == false) {
+    //         e.preventDefault();
+    //         dispatch(addScheduledMessage(schedule));
+    //         setSubmitted(true);
+    //         toggleScheduleModal();
+    //         setSchedule({
+    //             patientId: `${clientprofile.clientId}`,
+    //             msg: '',
+    //             min: '',
+    //             hour: '',
+    //             dom: '',
+    //             month: '',
+    //             weekday: '',
+    //             ampm: '',
+    //             year: ''
+    //         });
+    //     }
+    // };
+
     return (
         <>
             <div className='message-container'>
@@ -108,6 +128,7 @@ function ScheduledMessages(props) {
                         rows='4'
                         cols='50'
                         onChange={handleInputChange}
+                        // onKeyDown={onEnterPress}
                         value={schedule.msg}
                         name='msg'
                         type='text'

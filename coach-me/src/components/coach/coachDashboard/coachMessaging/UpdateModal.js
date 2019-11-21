@@ -72,7 +72,6 @@ const UpdateModal = props => {
     };
 
     const submitUpdatedMessage = e => {
-        console.log('UPDATED MESSAGE', schedule);
         e.preventDefault();
         dispatch(updateScheduledMessage(id, schedule));
         setUpdated(true);
@@ -109,6 +108,7 @@ const UpdateModal = props => {
                             rows='4'
                             cols='50'
                             onChange={handleInputChange}
+                            // onKeyDown={onEnterPress}
                             value={schedule.msg}
                             name='msg'
                             type='text'

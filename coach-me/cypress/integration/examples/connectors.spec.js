@@ -7,9 +7,7 @@ context('Connectors', () => {
 
     it('.each() - iterate over an array of elements', () => {
         // https://on.cypress.io/each
-        cy.get('.connectors-each-ul>li').each(($el, index, $list) => {
-            console.log($el, index, $list);
-        });
+        cy.get('.connectors-each-ul>li').each(($el, index, $list) => {});
     });
 
     it('.its() - get properties on the current subject', () => {

@@ -7,14 +7,13 @@ import { ReactComponent as GreenCheck } from '../assets/greenCheckMark.svg';
 import { ReactComponent as RedX } from '../assets/redX.svg';
 
 const GoalCard = props => {
-    console.log('GoalCards', props);
-
     const [show, setShow] = useState(false);
 
     const toggleGoal = e => {
         setShow(!show);
     };
 
+    // creating dynamic variables that can be activation off of a conditional statement to reflect the progress of the various goals
     let goalMet;
     let goalResponse;
     if (props.metGoal === 'Yes') {
@@ -39,6 +38,7 @@ const GoalCard = props => {
         );
     }
 
+    // creating dynamic variables that can be toggled closed or open off of a boolean value in state off of a turnery statement and css
     let notes;
     let goalNotes;
     if (props.notes !== undefined && show !== false) {

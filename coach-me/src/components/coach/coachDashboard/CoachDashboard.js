@@ -30,6 +30,7 @@ const CoachDashboard = props => {
         setclientprofile(state.clientRecords[0]);
     }, [state.clientRecords]);
 
+    // this function when called, will set local state of clientProfile to the clientId that is called as a value. This then sets the clientProfile state every time a client is clicked on in the Search Form to change the clientprofile in the rest of the coach dashboard props.
     const setClient = clientID => {
         state.clientRecords.filter(client => {
             if (clientID === client.clientId) {
@@ -38,6 +39,7 @@ const CoachDashboard = props => {
         });
     };
 
+    // passing the current clientprofile to all the components in coach dash board
     return (
         <>
             <CoachHeader {...props} />

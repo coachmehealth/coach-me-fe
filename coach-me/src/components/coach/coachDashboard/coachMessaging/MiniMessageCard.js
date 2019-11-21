@@ -17,10 +17,10 @@ function MiniMessageCard(props) {
             setDate(`${item.weekday}s,`);
         }
         if (item.month === '' && item.dom !== '' && date === '') {
-            setDate(`${item.dom}${suffix} of every month,`);
+            setDate(`${item.dom}${suffix} of every month`);
         }
         if (item.month !== '' && item.dom !== '' && date === '') {
-            setDate(`${item.month} ${item.dom}, ${item.year}`);
+            setDate(`${item.month} ${item.dom} ${item.year}`);
         }
     }
 

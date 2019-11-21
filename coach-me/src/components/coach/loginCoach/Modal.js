@@ -25,11 +25,10 @@ const Modal = ({ setModal }) => {
             setMessageFromServer('');
         } else {
             axios
-                .post('http://localhost:4000/forgotPassword', {
+                .post(`${process.env.REACT_APP_BACK_END_URL}/forgotPassword`, {
                     email: email
                 })
                 .then(res => {
-                    console.log(res.data);
                     if (res.data === 'email not in db') {
                         setShowError(true);
                         setMessageFromServer('');
@@ -43,7 +42,7 @@ const Modal = ({ setModal }) => {
                 });
         }
     };
-    console.log(email);
+
     return (
         <div className='modal'>
             <div className='modal-content'>

@@ -5,7 +5,6 @@ import store from '../../../store';
 
 export const translate = words => {
     const state = store.getState();
-    console.log('************STORRE', state);
 
     // DEFAULT Language Preference is set to English
     let langPref = 'English';

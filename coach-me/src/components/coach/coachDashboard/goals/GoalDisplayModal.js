@@ -8,7 +8,7 @@ const GoalDisplayModal = props => {
     const { goals, toggleModal, show } = props;
 
     const [showAll, setShowAll] = useState(false);
-
+    // using import boolean from goalsDisplay to toggle modal on or off in a conditional
     if (show) {
         return (
             <div className='goal-modal-container'>
@@ -22,9 +22,7 @@ const GoalDisplayModal = props => {
                     <div className='modal-label'>
                         <label>Goals</label>
                     </div>
-                    {/* <div className='expand-collapse-button'>
-                        {showAll ? collapseAll : expandAll}
-                    </div> */}
+
                     <PerfectScrollbar className='scrollbar-container'>
                         {goals
                             .filter(x => x.goal !== undefined)

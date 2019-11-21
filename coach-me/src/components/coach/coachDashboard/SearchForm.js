@@ -51,7 +51,6 @@ const SearchForm = props => {
             );
         }
     }, [query, clientList]);
-    console.log(clientList);
 
     return (
         <>
@@ -79,7 +78,6 @@ const SearchForm = props => {
                         <div
                             className='client-card'
                             onClick={() => {
-                                console.log(client.clientName);
                                 if (client.clientName) {
                                     check(client.clientName);
                                 }

@@ -19,10 +19,10 @@ const MessageCard = props => {
             if (item.dom.endsWith('3') && item.dom !== '13') suffix = 'rd';
 
             if (item.month === '' && item.dom === '') {
-                setDate(`${item.weekday}s,`);
+                setDate(`${item.weekday}s`);
             }
             if (item.month === '' && item.dom !== '') {
-                setDate(`${item.dom}${suffix} of every month,`);
+                setDate(`${item.dom}${suffix} of every month`);
             }
             if (item.month !== '' && item.dom !== '') {
                 setDate(`${item.month} ${item.dom}, ${item.year}`);

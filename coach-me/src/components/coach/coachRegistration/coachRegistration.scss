@@ -10,7 +10,7 @@
 .Register-Wrapper {
     display: flex;
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: DM Sans;
 
     .side-one {
         width: 45%;
@@ -29,10 +29,11 @@
             font-size: 2rem;
             line-height: 26px;
             color: #e6e7e7;
-            // margin: 0 auto;
             width: 70%;
             margin-left: 55px;
             margin-bottom: 20px;
+            align-self: center;
+            margin-bottom: 1.8rem;
         }
         .logo-wrapper {
             margin-top: 30px;
@@ -52,11 +53,14 @@
         display: flex;
         flex-direction: column;
         color: #274160;
+        // height: 100%;
+        margin-top: 6rem;
 
         h1 {
             font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 2rem;
+            font-family: Montserrat;
         }
 
         p {
@@ -131,6 +135,7 @@
             cursor: pointer;
             align-self: center;
             outline: none;
+            font-family: DM Sans;
         }
         .login-container {
             font-size: 1.2rem;

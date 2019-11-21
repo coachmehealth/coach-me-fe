@@ -11,8 +11,8 @@ import {
     GET_METRICS_FAILURE
 } from './types';
 
+//Get client info endpoint
 export const getClientInfo = props => dispatch => {
-    console.log(props);
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });
     axios
@@ -42,6 +42,8 @@ export const getClientInfo = props => dispatch => {
             });
         });
 };
+
+//Login endpoint for client (uses client phone number from airtable)
 export const getClientInfoLogin = props => dispatch => {
     const clientnum = { clientPhone: props.num };
     dispatch({ type: GET_CLIENTS_START });

@@ -1,7 +1,7 @@
 .message-list-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    // justify-content: space-around;
     background: #f6f6f6;
 
     height: 100vh;
@@ -14,6 +14,8 @@
         line-height: 22px;
         color: #1c3048;
         margin: 4.5%;
+        margin-bottom: 4rem;
+        margin-top: 4rem;
     }
 
     .back-bttn-container {
@@ -54,7 +56,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 4rem;
 
             .message-card {
                 display: flex;
@@ -105,6 +107,7 @@
                     p {
                         color: #355478;
                         word-wrap: break-word;
+                        margin-left: 3rem;
                     }
                 }
             }
@@ -197,6 +200,7 @@
             p {
                 color: #355478;
                 word-wrap: break-word;
+                padding-left: 4rem;
             }
         }
     }

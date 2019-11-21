@@ -78,7 +78,7 @@ function CoachRegistration(props) {
                 >
                     <div className='input-Wrapper'>
                         <div className='input-layout'>
-                            <label>FullName</label>
+                            <label>Full Name</label>
                             <input
                                 data-cy='input1'
                                 type='text'
