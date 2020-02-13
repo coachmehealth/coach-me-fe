@@ -186,8 +186,8 @@ const HealthMetric = props => {
                                     handleClick(
                                         'Blood Pressure',
                                         'mmHg',
-                                        'Blood_pressure_under',
-                                        'Blood_pressure_over'
+                                        'Blood_pressure_over',
+                                        'Blood_pressure_under'
                                     )
                                 }
                             >
